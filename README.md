@@ -134,8 +134,7 @@ python -m PyInstaller --onefile --windowed --name download --icon=DeploXServer.i
 #### Gestionar Programas
 
 1. Haz click en "Añadir Programa" e ingresa el nombre.
-2. Introduce o busca la ruta del ejecutable (ej. `\\sena\programas\chrome\chrome.exe`).
-3. El sistema buscará un icono automáticamente en la carpeta de origen (`icon.png` o `logo.png`). Si no existe, permite asignarlo manualmente.
+2. Introduce o busca la ruta del ejecutable.
 
 #### Gestionar Grupos
 
@@ -233,20 +232,10 @@ El archivo de configuración puede ser editado directamente para ajustes finos, 
 - **Causa**: Interrupción en la escritura o borrado incorrecto.
 - **Solución**: Elimina el `config.json` defectuoso, abre `config.exe` y añade una aplicación para regenerar la estructura por defecto automáticamente.
 
-### "Archivo no encontrado al ejecutar"
-
-- **Causa**: La ruta UNC no es accesible o faltan permisos de red SMB.
-- **Solución**: Verifica tu conexión con la ruta mediante el comando `net use \\servidor` en Windows y comprueba los permisos NTFS.
-
 ### "Los iconos no aparecen en la interfaz"
 
 - **Causa**: Formato de imagen no soportado o falta de permisos de escritura en la carpeta `icons/`.
 - **Solución**: Asegúrate de que las imágenes sean PNG o JPG válidas y verifica que el directorio local tenga permisos de escritura correctos.
-
-### "El programa se cierra inmediatamente tras abrirse"
-
-- **Causa**: El ejecutable remoto depende de archivos o librerías DLL que no están presentes localmente.
-- **Solución**: Utiliza la opción "Descargar" (dentro del botón ⋮) para traer el programa a tu máquina y diagnosticar fallas de dependencia locales.
 
 ---
 
