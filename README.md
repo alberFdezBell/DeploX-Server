@@ -2,6 +2,9 @@
 
 DeploX Server es una solución cliente-servidor portátil para gestionar la distribución y ejecución de programas dentro de una red local (UNC/SMB). Mediante dos interfaces gráficas intuitivas, permite a los administradores centralizar un catálogo de software en la red y a los usuarios finales ejecutar o descargar las aplicaciones en tiempo real sin configuraciones complejas.
 
+<img width="925" height="331" alt="DeploXServer" src="https://github.com/user-attachments/assets/a425194e-b086-45ef-866a-578483090fba" />
+
+
 ---
 
 ## - Tabla de contenidos
@@ -21,7 +24,6 @@ DeploX Server es una solución cliente-servidor portátil para gestionar la dist
 ## - Características
 
 - **Administrador centralizado**: Gestiona el catálogo de programas y crea grupos con interfaz visual.
-- **Detección automática de iconos**: Busca y extrae automáticamente archivos `icon.png` o `logo.png` de la carpeta del ejecutable.
 - **Soporte nativo UNC**: Diseñado específicamente para trabajar con rutas de red local (`\\servidor\carpeta`).
 - **Actualización en caliente**: Los clientes recargan el catálogo al instante con un solo botón y un efecto visual de spinner.
 - **Filtrado dinámico**: Buscador por texto y filtros por grupos combinables en tiempo real (AND lógico).
@@ -33,16 +35,17 @@ DeploX Server es una solución cliente-servidor portátil para gestionar la dist
 
 ```
 DeploXServer/
-├── config.py              # Administrador (código fuente)
-├── download.py            # Cliente / Launcher (código fuente)
-├── utils.py               # Lógica compartida y utilidades base
+├── sin_compilar/
+|    ├── config.py
+|    ├── download.py
+|    └── utils.py
+├── config.exe              # Administrador (código fuente)
+├── download.exe            # Cliente / Launcher (código fuente)
 ├── config.json            # Catálogo centralizado (se genera automáticamente)
-├── icons/                 # Almacenamiento de iconos normalizados
-│   ├── chrome.png
-│   └── office.png
-└── [archivos de compilación]
-    ├── build.bat          # Script de compilación para Windows
-    └── build.sh           # Script de compilación para Linux/macOS
+└── icons/                 # Almacenamiento de iconos normalizados
+    ├── chrome.png
+    └── office.png
+
 ```
 
 ---
@@ -100,34 +103,16 @@ pip install pyinstaller>=5.0.0
 
 ### Compilar ambas aplicaciones
 
-#### Opción A: Scripts automáticos (Recomendado)
-
-En Windows:
-
-```bash
-build.bat
-```
-
-En Linux/macOS:
-
-```bash
-bash build.sh
-```
-
-Este proceso generará automáticamente la carpeta de distribución `DeploXServer/` lista con ambos ejecutables y la estructura interna.
-
-#### Opción B: Comandos manuales
-
 Administrador (config.py):
 
 ```bash
-python -m PyInstaller --windowed --name config config.py
+python -m PyInstaller --onefile --windowed --name config --icon=DeploXServer.ico config.py
 ```
 
 Cliente (download.py):
 
 ```bash
-python -m PyInstaller --windowed --name download download.py
+python -m PyInstaller --onefile --windowed --name download --icon=DeploXServer.ico download.py
 ```
 
 ---
@@ -149,8 +134,7 @@ python -m PyInstaller --windowed --name download download.py
 #### Gestionar Programas
 
 1. Haz click en "Añadir Programa" e ingresa el nombre.
-2. Introduce o busca la ruta del ejecutable (ej. `\\sena\programas\chrome\chrome.exe`).
-3. El sistema buscará un icono automáticamente en la carpeta de origen (`icon.png` o `logo.png`). Si no existe, permite asignarlo manualmente.
+2. Introduce o busca la ruta del ejecutable.
 
 #### Gestionar Grupos
 
@@ -248,20 +232,10 @@ El archivo de configuración puede ser editado directamente para ajustes finos, 
 - **Causa**: Interrupción en la escritura o borrado incorrecto.
 - **Solución**: Elimina el `config.json` defectuoso, abre `config.exe` y añade una aplicación para regenerar la estructura por defecto automáticamente.
 
-### "Archivo no encontrado al ejecutar"
-
-- **Causa**: La ruta UNC no es accesible o faltan permisos de red SMB.
-- **Solución**: Verifica tu conexión con la ruta mediante el comando `net use \\servidor` en Windows y comprueba los permisos NTFS.
-
 ### "Los iconos no aparecen en la interfaz"
 
 - **Causa**: Formato de imagen no soportado o falta de permisos de escritura en la carpeta `icons/`.
 - **Solución**: Asegúrate de que las imágenes sean PNG o JPG válidas y verifica que el directorio local tenga permisos de escritura correctos.
-
-### "El programa se cierra inmediatamente tras abrirse"
-
-- **Causa**: El ejecutable remoto depende de archivos o librerías DLL que no están presentes localmente.
-- **Solución**: Utiliza la opción "Descargar" (dentro del botón ⋮) para traer el programa a tu máquina y diagnosticar fallas de dependencia locales.
 
 ---
 
