@@ -104,34 +104,16 @@ pip install pyinstaller>=5.0.0
 
 ### Compilar ambas aplicaciones
 
-#### Opción A: Scripts automáticos (Recomendado)
-
-En Windows:
-
-```bash
-build.bat
-```
-
-En Linux/macOS:
-
-```bash
-bash build.sh
-```
-
-Este proceso generará automáticamente la carpeta de distribución `DeploXServer/` lista con ambos ejecutables y la estructura interna.
-
-#### Opción B: Comandos manuales
-
 Administrador (config.py):
 
 ```bash
-python -m PyInstaller --windowed --name config config.py
+python -m PyInstaller --onefile --windowed --name config --icon=DeploXServer.ico config.py
 ```
 
 Cliente (download.py):
 
 ```bash
-python -m PyInstaller --windowed --name download download.py
+python -m PyInstaller --onefile --windowed --name download --icon=DeploXServer.ico download.py
 ```
 
 ---
