@@ -24,7 +24,6 @@ DeploX Server es una solución cliente-servidor portátil para gestionar la dist
 ## - Características
 
 - **Administrador centralizado**: Gestiona el catálogo de programas y crea grupos con interfaz visual.
-- **Detección automática de iconos**: Busca y extrae automáticamente archivos `icon.png` o `logo.png` de la carpeta del ejecutable.
 - **Soporte nativo UNC**: Diseñado específicamente para trabajar con rutas de red local (`\\servidor\carpeta`).
 - **Actualización en caliente**: Los clientes recargan el catálogo al instante con un solo botón y un efecto visual de spinner.
 - **Filtrado dinámico**: Buscador por texto y filtros por grupos combinables en tiempo real (AND lógico).
