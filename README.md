@@ -254,4 +254,4 @@ Proyecto de uso interno corporativo. Redistribución permitida siempre que se ma
 **Versión**: 1.0  
 **Última actualización**: Junio 2026
 
-- Alberto Fernández Bellido -
+**- Alberto Fernández Bellido -**
