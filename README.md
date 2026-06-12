@@ -36,16 +36,17 @@ DeploX Server es una solución cliente-servidor portátil para gestionar la dist
 
 ```
 DeploXServer/
-├── config.py              # Administrador (código fuente)
-├── download.py            # Cliente / Launcher (código fuente)
-├── utils.py               # Lógica compartida y utilidades base
+├── sin_compilar/
+|    ├── config.py
+|    ├── download.py
+|    └── utils.py
+├── config.exe              # Administrador (código fuente)
+├── download.exe            # Cliente / Launcher (código fuente)
 ├── config.json            # Catálogo centralizado (se genera automáticamente)
-├── icons/                 # Almacenamiento de iconos normalizados
-│   ├── chrome.png
-│   └── office.png
-└── [archivos de compilación]
-    ├── build.bat          # Script de compilación para Windows
-    └── build.sh           # Script de compilación para Linux/macOS
+└── icons/                 # Almacenamiento de iconos normalizados
+    ├── chrome.png
+    └── office.png
+
 ```
 
 ---
