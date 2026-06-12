@@ -2,6 +2,9 @@
 
 DeploX Server es una solución cliente-servidor portátil para gestionar la distribución y ejecución de programas dentro de una red local (UNC/SMB). Mediante dos interfaces gráficas intuitivas, permite a los administradores centralizar un catálogo de software en la red y a los usuarios finales ejecutar o descargar las aplicaciones en tiempo real sin configuraciones complejas.
 
+<img width="925" height="331" alt="DeploXServer" src="https://github.com/user-attachments/assets/a425194e-b086-45ef-866a-578483090fba" />
+
+
 ---
 
 ## - Tabla de contenidos
