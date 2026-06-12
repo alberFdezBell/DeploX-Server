@@ -4,7 +4,7 @@ DeploX Server es una solución cliente-servidor portátil para gestionar la dist
 
 <img width="925" height="331" alt="DeploXServer" src="https://github.com/user-attachments/assets/a425194e-b086-45ef-866a-578483090fba" />
 
-*Nota: Existe una versión portátil de DeploX Server. Accede desde [aquí]([https://github.com/alberFdezBell/Deplox]))*
+*Nota: Existe una versión portátil de DeploX Server. Accede desde [aquí](https://github.com/alberFdezBell/Deplox)*
 
 ---
 
